@@ -262,6 +262,28 @@ func (b *Board) copy() *Board {
 	}
 }
 
+func (b *Board) CopyBoard() *Board {
+	return &Board{
+		whiteSqs:      b.whiteSqs,
+		blackSqs:      b.blackSqs,
+		emptySqs:      b.emptySqs,
+		whiteKingSq:   b.whiteKingSq,
+		blackKingSq:   b.blackKingSq,
+		bbWhiteKing:   b.bbWhiteKing,
+		bbWhiteQueen:  b.bbWhiteQueen,
+		bbWhiteRook:   b.bbWhiteRook,
+		bbWhiteBishop: b.bbWhiteBishop,
+		bbWhiteKnight: b.bbWhiteKnight,
+		bbWhitePawn:   b.bbWhitePawn,
+		bbBlackKing:   b.bbBlackKing,
+		bbBlackQueen:  b.bbBlackQueen,
+		bbBlackRook:   b.bbBlackRook,
+		bbBlackBishop: b.bbBlackBishop,
+		bbBlackKnight: b.bbBlackKnight,
+		bbBlackPawn:   b.bbBlackPawn,
+	}
+}
+
 func (b *Board) isOccupied(sq Square) bool {
 	return !b.emptySqs.Occupied(sq)
 }
