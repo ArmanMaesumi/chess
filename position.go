@@ -175,6 +175,18 @@ func (pos *Position) copy() *Position {
 	}
 }
 
+func (pos *Position) CopyPosition() *Position {
+	return &Position{
+		board:           pos.board.CopyBoard(),
+		turn:            pos.turn,
+		castleRights:    pos.castleRights,
+		enPassantSquare: pos.enPassantSquare,
+		halfMoveClock:   pos.halfMoveClock,
+		moveCount:       pos.moveCount,
+		inCheck:         pos.inCheck,
+	}
+}
+
 func (pos *Position) updateCastleRights(m *Move) CastleRights {
 	cr := string(pos.castleRights)
 	p := pos.board.Piece(m.s1)
